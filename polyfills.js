@@ -24,3 +24,16 @@ Array.prototype.custom_map = function (someFunction){
 // console.log(myArr.custom_map((val)=>(val*10)))
 
 //my own filter
+
+Array.prototype.custom_filter = function (someFunction){
+    const result=[]
+    for(let i =0;i<this.length;i++){
+        if(someFunction(this[i],i,this)){
+            result.push(this[i])
+        }
+    }
+    return result
+}
+
+// const myArr = [1,2,3,4,5,6,7,8,9]
+// console.log(myArr.custom_filter((value)=>(value>5)))
