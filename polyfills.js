@@ -50,3 +50,25 @@ Array.prototype.custom_reduce = function (someFunction,initialValue){
 
 // const myArr = ["BA","NA","NA"]
 // console.log(myArr.custom_reduce((acc,val)=>(acc+val),""))
+
+//my own flat 
+
+Array.prototype.custom_flat = function(){
+    const result = []
+    
+    function flatten(arr){
+        for(let i = 0;i<arr.length;i++){
+            if(Array.isArray(arr[i])){
+                flatten(arr[i])
+            }else{
+                result.push(arr[i])
+            }    
+        }
+    }
+    flatten(this)
+    return result
+   
+}
+
+const myArr=[1,2,[3,4,[4,5]],[5,6,[7,8,9]]]
+console.log(myArr.custom_flat())
